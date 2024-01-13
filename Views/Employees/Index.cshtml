@@ -1,0 +1,44 @@
+﻿@model List<MVC_CRUD.Models.Domain.Employee>
+@{
+    var employees = Model;
+
+}
+
+
+<h1>Employess List</h1>
+
+
+<table class="table">
+       <thead>
+           <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Email</th>
+            @using (Html.BeginForm("Employees", ""))
+            {
+                
+               <th><button type="submit" name="salary" class="btn" >Salary</button></th>
+            }
+
+               <th></th>
+           </tr>
+
+       </thead>
+
+       <tbody>
+           @foreach (var employee in Model)
+            {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>@employee.Salary</td>
+                <td><a href="Employees/View/@employee.Id">View</a></td>
+
+            </tr>
+            }
+
+       </tbody>
+
+
+</table>
